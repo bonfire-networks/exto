@@ -85,7 +85,7 @@ defmodule Flexto do
   @cats [:field, :has_one, :has_many, :many_to_many]
 
   defp flex_category({cat, items}) when cat in @cats and is_list(items),
-    do: Enum.map(items, &flex_association(Module.concat(Ecto.Schema, cat), &1))
+    do: Enum.map(items, &flex_association(cat, &1))
 
   defp flex_category(_), do: [] # skip over anything else, they might use it!
 
