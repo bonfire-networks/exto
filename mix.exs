@@ -7,6 +7,20 @@ defmodule Flexto.MixProject do
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
+      description: "Ecto's missing universal foreign key",
+      homepage_url: "https://github.com/commonspub/pointers",
+      source_url: "https://github.com/commonspub/pointers",
+      package: [
+        licenses: ["Apache 2"],
+        links: %{
+          "Repository" => "https://github.com/commonspub/flexto",
+          "Hexdocs" => "https://hexdocs.pm/flexto",
+        },
+      ],
+      docs: [
+        main: "readme", # The first page to display from the docs 
+        extras: ["README.md"], # extra pages to include
+      ],
       deps: deps()
     ]
   end
@@ -21,6 +35,7 @@ defmodule Flexto.MixProject do
     [
       {:ecto, "~> 3.0"},
       # {:ecto_sql, "~> 3.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
     ]
   end
 end
