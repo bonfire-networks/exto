@@ -4,12 +4,12 @@ defmodule Flexto.MixProject do
   def project do
     [
       app: :flexto,
-      version: "0.1.0",
+      version: "0.2.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
-      description: "Ecto's missing universal foreign key",
-      homepage_url: "https://github.com/commonspub/pointers",
-      source_url: "https://github.com/commonspub/pointers",
+      description: "Hack ecto schemas after the fact.",
+      homepage_url: "https://github.com/commonspub/flexto",
+      source_url: "https://github.com/commonspub/flexto",
       package: [
         licenses: ["Apache 2"],
         links: %{
