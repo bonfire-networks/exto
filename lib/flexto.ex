@@ -89,13 +89,23 @@ defmodule Flexto do
 
   defp flex_category(_), do: [] # skip over anything else, they might use it!
 
-  defp flex_association(rel, {name, type}) when is_atom(name) and is_atom(type),
+  defp flex_association(rel, {name, type})
+  when is_atom(name) and is_atom(type),
     do: flex_association(rel, name, type, [])
+
+  defp flex_association(rel, {name, opts})
+  when is_atom(name) and is_list(opts),
+    do: flex_association(rel, name, opts)
 
   defp flex_association(rel, {name, {type, opts}})
   when is_atom(name) and is_atom(type) and is_list(opts),
     do: flex_association(rel, name, type, opts)
 
+  defp flex_association(rel, name, opts) do
+    quote do
+      unquote(rel)(unquote(name), unquote(opts))
+    end
+  end
   defp flex_association(rel, name, type, opts) do
     quote do
       unquote(rel)(unquote(name), unquote(type), unquote(opts))
