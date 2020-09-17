@@ -82,7 +82,7 @@ defmodule Flexto do
 
   # flex_schema impl
 
-  @cats [:field, :has_one, :has_many, :many_to_many]
+  @cats [:belongs_to, :field, :has_one, :has_many, :many_to_many]
 
   defp flex_category({cat, items}) when cat in @cats and is_list(items),
     do: Enum.map(items, &flex_association(cat, &1))
