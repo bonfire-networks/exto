@@ -1,7 +1,7 @@
+# Flexto
+
 [![hex.pm](https://img.shields.io/hexpm/v/flexto)](https://hex.pm/packages/flexto)
 [hexdocs](https://hexdocs.pm/flexto)
-
-# Flexto
 
 Configuration-driven Ecto Schemas.
 
