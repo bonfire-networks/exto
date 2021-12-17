@@ -101,6 +101,10 @@ defmodule Flexto do
   when is_atom(name) and is_atom(type) and is_list(opts),
     do: flex_association(rel, name, type, opts)
 
+  defp flex_association(rel, {name, {opts}})
+  when is_atom(name) and is_list(opts),
+    do: flex_association(rel, name, opts)
+
   defp flex_association(rel, name, opts) do
     quote do
       unquote(rel)(unquote(name), unquote(opts))
