@@ -82,14 +82,14 @@ defmodule Flexto do
 
   # flex_schema impl
 
-  @cats [:belongs_to, :field, :has_one, :has_many, :many_to_many, :code]
+  @cats [:belongs_to, :field, :has_one, :has_many, :many_to_many]
 
+  defp flex_category({:code, code}), do: [code]
   defp flex_category({cat, items}) when cat in @cats and is_list(items),
     do: Enum.map(items, &flex_association(cat, &1))
 
   defp flex_category(_), do: [] # skip over anything else, they might use it!
 
-  defp flex_association(:code, code), do: code
   defp flex_association(rel, {name, type})
   when is_atom(name) and is_atom(type),
     do: flex_association(rel, name, type, [])
