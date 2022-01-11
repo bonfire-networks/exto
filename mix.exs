@@ -4,7 +4,7 @@ defmodule Flexto.MixProject do
   def project do
     [
       app: :flexto,
-      version: "0.2.2",
+      version: "0.2.3",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       description: "Hack ecto schemas after the fact.",
@@ -13,7 +13,7 @@ defmodule Flexto.MixProject do
       package: [
         licenses: ["Apache 2"],
         links: %{
-          "Repository" => "https://github.com/commonspub/flexto",
+          "Repository" => "https://github.com/bonfire-networks/flexto",
           "Hexdocs" => "https://hexdocs.pm/flexto",
         },
       ],
