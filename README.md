@@ -3,7 +3,7 @@
 [![hex.pm](https://img.shields.io/hexpm/v/flexto)](https://hex.pm/packages/flexto)
 [hexdocs](https://hexdocs.pm/flexto)
 
-Configuration-driven Ecto Schemas.
+`Flexto` provides configuration-driven Ecto schema extensibility
 
 ## Usage
 
