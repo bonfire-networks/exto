@@ -18,18 +18,14 @@ defmodule Flexto.MixProject do
         },
       ],
       docs: [
-        main: "readme", # The first page to display from the docs 
+        main: "readme", # The first page to display from the docs
         extras: ["README.md"], # extra pages to include
       ],
       deps: deps()
     ]
   end
 
-  def application do
-    [
-      extra_applications: [:logger]
-    ]
-  end
+  def application, do: [ extra_applications: [:logger] ]
 
   defp deps do
     [
