@@ -8,8 +8,8 @@ defmodule Flexto.MixProject do
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       description: "Hack ecto schemas after the fact.",
-      homepage_url: "https://github.com/commonspub/flexto",
-      source_url: "https://github.com/commonspub/flexto",
+      homepage_url: "https://github.com/bonfire-networks/flexto",
+      source_url: "https://github.com/bonfire-networks/flexto",
       package: [
         licenses: ["Apache 2"],
         links: %{
