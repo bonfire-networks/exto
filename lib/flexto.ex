@@ -75,8 +75,9 @@ defmodule Flexto do
     module = __CALLER__.module
     config = Application.get_env(otp_app, module, [])
     code = Enum.flat_map(config, &flex_category/1)
+
     quote do
-      unquote_splicing(code)
+      (unquote_splicing(code))
     end
   end
 
@@ -85,36 +86,38 @@ defmodule Flexto do
   @cats [:belongs_to, :field, :has_one, :has_many, :many_to_many]
 
   defp flex_category({:code, code}), do: [code]
+
   defp flex_category({cat, items}) when cat in @cats and is_list(items),
     do: Enum.map(items, &flex_association(cat, &1))
 
-  defp flex_category(_), do: [] # skip over anything else, they might use it!
+  # skip over anything else, they might use it!
+  defp flex_category(_), do: []
 
   defp flex_association(rel, {name, type})
-  when is_atom(name) and is_atom(type),
-    do: flex_association(rel, name, type, [])
+       when is_atom(name) and is_atom(type),
+       do: flex_association(rel, name, type, [])
 
   defp flex_association(rel, {name, opts})
-  when is_atom(name) and is_list(opts),
-    do: flex_association(rel, name, opts)
+       when is_atom(name) and is_list(opts),
+       do: flex_association(rel, name, opts)
 
   defp flex_association(rel, {name, {type, opts}})
-  when is_atom(name) and is_atom(type) and is_list(opts),
-    do: flex_association(rel, name, type, opts)
+       when is_atom(name) and is_atom(type) and is_list(opts),
+       do: flex_association(rel, name, type, opts)
 
   defp flex_association(rel, {name, {opts}})
-  when is_atom(name) and is_list(opts),
-    do: flex_association(rel, name, opts)
+       when is_atom(name) and is_list(opts),
+       do: flex_association(rel, name, opts)
 
   defp flex_association(rel, name, opts) do
     quote do
       unquote(rel)(unquote(name), unquote(opts))
     end
   end
+
   defp flex_association(rel, name, type, opts) do
     quote do
       unquote(rel)(unquote(name), unquote(type), unquote(opts))
     end
   end
-
 end

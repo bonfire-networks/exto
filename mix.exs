@@ -14,24 +14,26 @@ defmodule Flexto.MixProject do
         licenses: ["Apache 2"],
         links: %{
           "Repository" => "https://github.com/bonfire-networks/flexto",
-          "Hexdocs" => "https://hexdocs.pm/flexto",
-        },
+          "Hexdocs" => "https://hexdocs.pm/flexto"
+        }
       ],
       docs: [
-        main: "readme", # The first page to display from the docs
-        extras: ["README.md"], # extra pages to include
+        # The first page to display from the docs
+        main: "readme",
+        # extra pages to include
+        extras: ["README.md"]
       ],
       deps: deps()
     ]
   end
 
-  def application, do: [ extra_applications: [:logger] ]
+  def application, do: [extra_applications: [:logger]]
 
   defp deps do
     [
       {:ecto, "~> 3.0"},
       # {:ecto_sql, "~> 3.0"},
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 end
