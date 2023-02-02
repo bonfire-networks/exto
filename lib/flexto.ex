@@ -67,7 +67,7 @@ defmodule Flexto do
   Reading of configuration is done during compile time. The relations
   will be baked in during compilation, thus:
 
-  * Do not expect this to work in release config.
+  * Do not expect this to work in runtime config.
   * You will need to rebuild all dependencies which use this macro
     when you change their configuration.
   """
