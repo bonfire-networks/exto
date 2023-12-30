@@ -1,9 +1,9 @@
-# Flexto
+# Exto
 
-[![hex.pm](https://img.shields.io/hexpm/v/flexto)](https://hex.pm/packages/flexto)
-[hexdocs](https://hexdocs.pm/flexto)
+[![hex.pm](https://img.shields.io/hexpm/v/exto)](https://hex.pm/packages/exto)
+[hexdocs](https://hexdocs.pm/exto)
 
-`Flexto` provides configuration-driven Ecto schema extensibility
+`Exto` provides configuration-driven Ecto schema extensibility
 
 ## Usage
 
@@ -12,7 +12,7 @@ Example Schema:
 ```elixir
 defmodule My.Schema do
   use Ecto.Schema
-  import Flexto, only: [flex_schema: 1]
+  import Exto, only: [flex_schema: 1]
 
   schema "my_table" do
     field :name, :string # just normal schema things
@@ -59,7 +59,7 @@ config :my_app, My.Schema,
 
 ## Copyright and License
 
-Copyright (c) 2020 Flexto Contributors
+Copyright (c) 2020 Exto Contributors
 
  Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

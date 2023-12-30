@@ -1,20 +1,20 @@
-defmodule Flexto.MixProject do
+defmodule Exto.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :flexto,
-      version: "0.2.3",
+      app: :exto,
+      version: "0.3.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
-      description: "Hack ecto schemas after the fact.",
-      homepage_url: "https://github.com/bonfire-networks/flexto",
-      source_url: "https://github.com/bonfire-networks/flexto",
+      description: "Extend ecto schema definitions in config",
+      homepage_url: "https://github.com/bonfire-networks/exto",
+      source_url: "https://github.com/bonfire-networks/exto",
       package: [
         licenses: ["Apache 2"],
         links: %{
-          "Repository" => "https://github.com/bonfire-networks/flexto",
-          "Hexdocs" => "https://hexdocs.pm/flexto"
+          "Repository" => "https://github.com/bonfire-networks/exto",
+          "Hexdocs" => "https://hexdocs.pm/exto"
         }
       ],
       docs: [

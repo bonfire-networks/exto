@@ -1,4 +1,4 @@
-defmodule Flexto do
+defmodule Exto do
   @moduledoc """
   Configuration-driven Ecto Schemata.
   """
@@ -26,7 +26,7 @@ defmodule Flexto do
   ```
   defmodule My.Schema do
     use Ecto.Schema
-    import Flexto, only: [flex_schema: 1]
+    import Exto, only: [flex_schema: 1]
 
     schema "my_table" do
       field :name, :string # just normal schema things

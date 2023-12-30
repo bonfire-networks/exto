@@ -1,4 +1,4 @@
 defmodule FlextoTest do
   use ExUnit.Case
-  doctest Flexto
+  doctest Exto
 end
