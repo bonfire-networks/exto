@@ -1,7 +1,5 @@
 defmodule Exto do
-  @moduledoc """
-  Configuration-driven Ecto Schemata.
-  """
+  @moduledoc "./README.md" |> File.stream!() |> Enum.drop(1) |> Enum.join()
 
   @doc """
   Adds additional associations dynamically from app config.
