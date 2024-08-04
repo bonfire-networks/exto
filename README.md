@@ -7,7 +7,7 @@
 
 ## Usage
 
-Example Schema:
+### Example Schema
 
 ```elixir
 defmodule My.Schema do
@@ -21,7 +21,7 @@ defmodule My.Schema do
 end
 ```
 
-Example configuration
+### Example configuration
 
 ```elixir
 config :my_app, My.Schema,
@@ -47,15 +47,12 @@ config :my_app, My.Schema,
   ]
 ```
 
-  This one won't work very well because we define `foo` and `bar` 5
-  times each, but I think you get the point.
+This example won't work very well because it is redefining `foo` and `bar` 5 times, but you get the point.
 
-  Reading of configuration is done during compile time. The relations
-  will be baked in during compilation, thus:
+Reading of configuration is done during compile time. The relations will be baked in during compilation, thus:
 
-  * Do not expect this to work in runtime config.
-  * You will need to rebuild all dependencies which use this macro
-    when you change their configuration.
+* Do not expect this to work in runtime config.
+* You will need to rebuild all dependencies which use this macro when you change their configuration.
 
 ## Copyright and License
 

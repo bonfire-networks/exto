@@ -2,10 +2,9 @@ defmodule Exto do
   @moduledoc "./README.md" |> File.stream!() |> Enum.drop(1) |> Enum.join()
 
   @doc """
-  Adds additional associations dynamically from app config.
-
-  Reads config for the given OTP application, under the name of the
-  current module. Each key maps to an Ecto.Schema function:
+  Adds additional associations dynamically based on the config found under the name of the current module for the given OTP application. 
+  
+  Each key maps to an Ecto.Schema function:
 
   * `belongs_to`
   * `field`
@@ -13,61 +12,11 @@ defmodule Exto do
   * `has_one`
   * `many_to_many`
 
-  Each of these keys should map to a keyword list where the key is the
-  name of the field or association and the value is one of:
+  Each of these keys should map to a keyword list where the key is the name of the field or association and the value is one of:
 
   * A type
   * A tuple of type and options (keyword list)
 
-  Example Schema:
-
-  ```
-  defmodule My.Schema do
-    use Ecto.Schema
-    import Exto, only: [flex_schema: 1]
-
-    schema "my_table" do
-      field :name, :string # just normal schema things
-      flex_schema(:my_app) # boom! give me the stuff
-    end
-  end
-  ```
-
-  Example configuration:
-
-  ```
-  config :my_app, My.Schema,
-    belongs_to: [
-      foo: Foo,                   # belongs_to :foo, Foo
-      bar: {Bar, type: :integer}, # belongs_to :bar, Bar, type: :integer
-    ],
-    field: [
-      foo: :string,                # field :foo, :string
-      bar: {:integer, default: 4}, # field :foo, :integer, default: 4
-    ],
-    has_one: [
-      foo: Foo,                             # has_one :foo, Foo
-      bar: {Bar, foreign_key: :the_bar_id}, # has_one :bar, Bar, foreign_key: :the_bar_id
-    ]
-    has_many: [
-      foo: Foo,                             # has_many :foo, Foo
-      bar: {Bar, foreign_key: :the_bar_id}, # has_many :bar, Bar, foreign_key: :the_bar_id
-    ]
-    many_to_many: [
-      foo: Foo,                         # many_to_many :foo, Foo
-      bar: {Bar, join_through: FooBar}, # many_to_many :bar, Bar, :join_through: FooBar
-    ]
-  ```
-
-  This one won't work very well because we define `foo` and `bar` 5
-  times each, but I think you get the point.
-
-  Reading of configuration is done during compile time. The relations
-  will be baked in during compilation, thus:
-
-  * Do not expect this to work in runtime config.
-  * You will need to rebuild all dependencies which use this macro
-    when you change their configuration.
   """
   defmacro flex_schema(otp_app) when is_atom(otp_app) do
     module = __CALLER__.module
@@ -118,4 +67,5 @@ defmodule Exto do
       unquote(rel)(unquote(name), unquote(type), unquote(opts))
     end
   end
+
 end
