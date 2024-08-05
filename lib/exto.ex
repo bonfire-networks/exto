@@ -1,6 +1,13 @@
 defmodule Exto do
   @moduledoc "./README.md" |> File.stream!() |> Enum.drop(1) |> Enum.join()
 
+  defmacro __using__(_options) do
+    quote do
+      import Exto, only: [flex_schema: 1]
+      use Accessible
+    end
+  end
+
   @doc """
   Adds additional associations dynamically based on the config found under the name of the current module for the given OTP application. 
   

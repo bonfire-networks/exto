@@ -32,6 +32,7 @@ defmodule Exto.MixProject do
   defp deps do
     [
       {:ecto, "~> 3.0"},
+      {:accessible, "~> 0.3.0"},
       # {:ecto_sql, "~> 3.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
     ]

@@ -21,6 +21,8 @@ defmodule My.Schema do
 end
 ```
 
+Or if you want the `Access` protocol to be auto-implemented on the struct (because [the reasoning](https://hexdocs.pm/elixir/Access.html#module-maps-and-structs) for not having it on structs doesn't apply as much when using Exto), you can pull in the `Accessible` library by simply using `use Exto` instead of `import Exto`.
+
 ### Example configuration
 
 ```elixir
