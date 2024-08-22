@@ -4,7 +4,7 @@ defmodule Exto.MixProject do
   def project do
     [
       app: :exto,
-      version: "0.3.0",
+      version: "0.4.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       description: "Extend ecto schema definitions in config",
